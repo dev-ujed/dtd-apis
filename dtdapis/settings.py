@@ -100,7 +100,7 @@ DATABASES = {
     'solicitudes': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-        'options': '-c search_path = ' + env.str('DB_SOL_SCHEMA')
+        'options': '-c search_path=' + env.str('DB_SOL_SCHEMA')
                     },
         'NAME': env.str('DB_SOL_NAME'),
         'USER': env.str('DB_SOL_USER'),
@@ -110,7 +110,7 @@ DATABASES = {
     },
 }
 
-# DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',
+DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',]
 #                     'calidad.dbrouters.routerCalidad',
 #                     'egresados.dbrouters.routerEgresados',]
 
