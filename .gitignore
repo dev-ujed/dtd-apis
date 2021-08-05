@@ -1,2 +1,10 @@
 # created by virtualenv automatically
+.env
+config
+description
+HEAD
+/hooks
+/info
+/objects
+/refs
 /venv
