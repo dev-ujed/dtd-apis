@@ -258,12 +258,12 @@ class MyFileSerializer(serializers.ModelSerializer):
     sizefile                = serializers.SerializerMethodField()
     
     def get_sizefile(self, obj):
-        path = path = 'media/'+str(obj.file)
+        path = 'media/'+str(obj.file)
         size = os.path.getsize(path)
         return size
     
     def get_urlfile(self, obj):
-        storage_location = 'http://192.168.10.46:8000/solicitudes/sol/archivo'
+        storage_location = 'http://192.168.10.46/solicitudes/sol/archivo'
         img_url = f'{storage_location}/{obj.file}'
         return img_url
     
