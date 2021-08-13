@@ -1,7 +1,7 @@
 # created by virtualenv automatically
 .env
 *.pyc
-*/_pycache_/
+*/__pycache__/
 config
 description
 HEAD
