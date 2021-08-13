@@ -17,4 +17,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('solicitudes/', include('solicitudes.urls')),
+    path('api/servsoc/', include('serviciosoc.urls')),
 ]
