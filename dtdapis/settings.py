@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     # Project apps
     'solicitudes',
+    'serviciosoc',
 ]
 
 MIDDLEWARE = [
@@ -100,13 +101,21 @@ DATABASES = {
     'solicitudes': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-        'options': '-c search_path=' + env.str('DB_SOL_SCHEMA')
-                    },
+            'options': '-c search_path=' + env.str('DB_SOL_SCHEMA')
+        },
         'NAME': env.str('DB_SOL_NAME'),
         'USER': env.str('DB_SOL_USER'),
         'PASSWORD': env.str('DB_SOL_PASS'),
         'HOST': env.str('DB_SOL_HOST'),
         'PORT': env.str('DB_SOL_PORT'),
+    },
+    'escolares': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': env.str('DB_NAME_ORACLE'),
+        'USER': env.str('DB_USER_ORACLE'),
+        'PASSWORD': env.str('DB_PASS_ORACLE'),
+        'HOST': env.str('DB_HOST_ORACLE'),
+        'PORT': env.str('DB_PORT_ORACLE'),
     },
 }
 
