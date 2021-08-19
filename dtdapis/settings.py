@@ -120,9 +120,9 @@ DATABASES = {
     },
 }
 
-DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',]
-#                     'calidad.dbrouters.routerCalidad',
-#                     'egresados.dbrouters.routerEgresados',]
+DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',
+                    'egresados.dbrouters.routerEgresados',]
+#                     'calidad.dbrouters.routerCalidad',]
 
 
 # Password validation
