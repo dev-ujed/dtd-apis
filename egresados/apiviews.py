@@ -38,7 +38,7 @@ class getDatosAlumnoPorEgresar(generics.ListAPIView):
 						and ta.cve_escuela = tg.cve_escuela and ta.cve_carrera = tg.cve_carrera and ta.cve_plan = tg.cve_plan
 						and tf.cve_nivel = '1300'
 						and ta.cve_estatus not in (3, 4, 5, 7)
-						and ta.semestre = tg.num_ciclos
+						and ta.semestre between (tg.num_ciclos - 1) and tg.num_ciclos
 						and ta.cve_ciclo = %s
 						and trim(ta.cve_alumno) = %s
 					""", [ciclo, matricula]
