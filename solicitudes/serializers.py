@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -263,7 +264,7 @@ class MyFileSerializer(serializers.ModelSerializer):
         return size
     
     def get_urlfile(self, obj):
-        storage_location = 'http://192.168.10.46/solicitudes/sol/archivo'
+        storage_location = settings.APP_URL + '/media'
         img_url = f'{storage_location}/{obj.file}'
         return img_url
     
