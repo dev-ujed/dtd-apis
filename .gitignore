@@ -11,3 +11,9 @@ HEAD
 /refs
 /venv
 /media
+dtdapis/__pycache__/settings.cpython-37.pyc
+dtdapis/__pycache__/urls.cpython-37.pyc
+solicitudes/__pycache__/apiviews.cpython-37.pyc
+solicitudes/__pycache__/models.cpython-37.pyc
+solicitudes/__pycache__/serializers.cpython-37.pyc
+solicitudes/__pycache__/urls.cpython-37.pyc
