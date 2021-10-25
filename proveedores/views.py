@@ -2,6 +2,7 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 
 # Create your views here.
@@ -21,14 +22,16 @@ def send_email(request, data, email, subject, email_template_name):
 
 
 
-def send_password(request, email_provider, rfc_provider, pass_provider):
-    print(email_provider, rfc_provider, pass_provider)
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def send_password(request):
     send_email(request,
                 {
-                    'rfc_provider'      : rfc_provider,
-                    'pass_provider'     : pass_provider
+                    'rfc_provider'      : request.data['rfc'],
+                    'pass_provider'     : request.data['pass']
                 }, 
-                email_provider, 
+                request.data['email'], 
                 'Activación de Usuario del Padrón de Proveedores UJED', 
                 'emails/provider_password.mjml')
     return HttpResponse('terminó')
