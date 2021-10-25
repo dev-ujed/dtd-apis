@@ -2,7 +2,7 @@
 <mj-section padding-bottom="50px" padding-top="70px" background-color="#B11830">
     <mj-group>
         <mj-column width="50%" >
-            <mj-image src="{{ SITE_URL }}{% static 'img/logo-ujed.png' %}"
+            <mj-image src="https://www.ujed.mx/img/footer/logo-ujed.2.png"
                 href="https://www.ujed.mx/"
                 fluid-on-mobile="false"
                 alt="Universidad Juárez del Estado de Durango"
@@ -13,7 +13,7 @@
             />
         </mj-column>
         <mj-column width="50%" >
-            <mj-image src="{{ SITE_URL }}{% static 'img/contraloria.png' %}"
+            <mj-image src="https://contraloria.ujed.mx/img/logo-ujed2.png"
                 href="https://contraloria.ujed.mx/"
                 fluid-on-mobile="false"
                 alt="Contraloría General de la UJED"
