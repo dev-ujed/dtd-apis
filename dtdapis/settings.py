@@ -50,10 +50,12 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'mjml',
     # Project apps
     'solicitudes',
     'serviciosoc',
     'egresados',
+    'proveedores',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +73,7 @@ ROOT_URLCONF = 'dtdapis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'proveedores.context_processors.root_url',
             ],
         },
     },
@@ -167,9 +170,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# STATIC_URL = '/static/'
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = '/static/'
+# STATIC_URL = os.path.join(BASE_DIR, 'static/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -185,3 +189,14 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
+
+# EMAIL
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_HOST = env.str('EMAIL_HOST')
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env.int('EMAIL_PORT')
+
+# MJML
+MJML_BACKEND_MODE = 'cmd'
+MJML_EXEC_CMD = env.str('MJML_PATH')
