@@ -1,0 +1,14 @@
+{% load static %}
+<mj-section padding-bottom="30px" padding-top="30px">
+    <mj-column width="66%">
+        <mj-text font-size="14px" color="#3A4148" padding-right="0px" padding-left="0px" padding-top="0px" >
+            <p class="paragraph paragraph--small text-center" font-family="helvetica">
+                <b>Padrón de Proveedores - Contraloría General de la UJED</b> <br>
+                Victoria 206 Sur esq. con Av. 20 de Noviembre, 2do. piso. Zona Centro.<br>
+                C.P. 34000. Durango, Dgo. México. <br>
+                Tel: (618) 827 12 44. E-mail: <a href="mailto:registroproveedores@ujed.mx" class="p-0 link--email" font-family="helvetica">registroproveedores@ujed.mx</a>.<br>
+                Sitio web: <a href="http://contraloria.ujed.mx/proveedores" class="p-0 link--email" font-family="helvetica">contraloria.ujed.mx/proveedores</a>
+            </p>
+        </mj-text>
+    </mj-column>
+</mj-section>

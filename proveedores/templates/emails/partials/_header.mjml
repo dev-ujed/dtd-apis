@@ -1,0 +1,27 @@
+{% load static %}
+<mj-section padding-bottom="50px" padding-top="70px" background-color="#B11830">
+    <mj-group>
+        <mj-column width="50%" >
+            <mj-image src="{{ SITE_URL }}{% static 'img/logo-ujed.png' %}"
+                href="https://www.ujed.mx/"
+                fluid-on-mobile="false"
+                alt="Universidad Juárez del Estado de Durango"
+                padding-bottom="0"
+                padding-top="0"
+                width="160px"
+                align="center"
+            />
+        </mj-column>
+        <mj-column width="50%" >
+            <mj-image src="{{ SITE_URL }}{% static 'img/contraloria.png' %}"
+                href="https://contraloria.ujed.mx/"
+                fluid-on-mobile="false"
+                alt="Contraloría General de la UJED"
+                padding-bottom="0"
+                padding-top="0"
+                width="160px"
+                align="center"
+            />
+        </mj-column>
+    </mj-group>
+</mj-section>
