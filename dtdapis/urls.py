@@ -19,4 +19,5 @@ urlpatterns = [
     path('solicitudes/',    include('solicitudes.urls')),
     path('api/servsoc/',    include('serviciosoc.urls')),
     path('egresados/',      include('egresados.urls')),
+    path('proveedores/',    include('proveedores.urls')),
 ]
