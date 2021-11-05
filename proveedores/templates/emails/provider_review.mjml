@@ -1,0 +1,75 @@
+{% load static %}
+{% load mjml %}
+{% mjml %}
+<mjml>
+    <mj-head>
+        <mj-title>Revisión de Datos y Documentación</mj-title>
+        {% include './partials/_styles.mjml' %}
+        <mj-breakpoint width="600px"/>
+    </mj-head>
+
+    <mj-body width="600px" background-color="#F0F2F3" >
+        {% include './partials/_header.mjml' %}
+
+        <mj-wrapper css-class="box" padding="0px">
+
+            <mj-section background-color="#fff" padding-top="5px" padding-bottom="0px" border-radius="5px">
+                <mj-column background-color="#fff" padding-bottom="30px">
+
+                    <mj-text font-size="14px" color="#3A4148">
+                        <p class="title" font-family="helvetica">Revisión de Datos y Documentos</p>
+                    </mj-text>
+
+                </mj-column>
+            </mj-section>
+
+            <mj-section padding="0" padding-bottom="20px" background-color="#fff">
+                <mj-column>
+                    <mj-text font-size="14px" color="#3A4148" padding-bottom="0" padding-top="0" >
+                        <p class="paragraph" font-family="helvetica">Estimado Proveedor:</p>
+                        <p class="paragraph" font-family="helvetica">Se ha revisado la información proporcionada por su parte, así como la documentación adjunta. 
+                        A continuación se indica el veredicto de cada punto:</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+             <mj-section padding-bottom="10px" padding-top="10px" border-bottom="1px solid #F0F2F3" border-top="1px solid #F0F2F3" background-color="#F9FAFA">
+                <mj-column>
+                    <mj-text font-size="14px" color="#3A4148" align="center" padding-bottom="0" padding-top="0" >
+                        <p class="paragraph" font-family="helvetica">
+                            R.F.C.: <br>
+                            <b>{{ rfc_provider }}</b>
+                        </p>
+                    </mj-text>
+
+                    <mj-table>
+                        <tr>
+                            <th style="border:1px solid #34495E; background-color:#ABB2B9; padding:5px; width: 55%;">DESCRIPCIÓN DE LA ACTIVIDAD</th>
+                            <th style="border:1px solid #34495E; background-color:#ABB2B9; padding:5px; width: 20%;">ESTADO</th>
+                            <th style="border:1px solid #34495E; background-color:#ABB2B9; padding:5px; width: 25%;">MOTIVO DE RECHAZO</th>
+                        </tr>
+                        {% for element in tabla %}
+                        <tr>
+                            <td style="border:1px solid #34495E; padding:2px 2px 2px 8px; background-color:{{element.color}}">{{ element.descrip }}</td>
+                            <td style="border:1px solid #34495E; padding:2px 2px 2px 2px; background-color:{{element.color}}" align="center">{{ element.estatus_desc }}</td>
+                            <td style="border:1px solid #34495E; padding:2px 2px 2px 8px; background-color:{{element.color}}">{{ element.motivo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </mj-table>
+                    
+                </mj-column>
+            </mj-section>
+
+            <mj-section padding-bottom="40px" padding-top="30px" background-color="#fff">
+                <mj-column>
+                    <mj-text font-size="14px" color="#3A4148" padding-bottom="0" padding-top="0" >
+                        <p class="paragraph" font-family="helvetica">En case de haberse detectado algún punto pendiente o rechazado, se le solicita lo resuelva a la brevedad.</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+        </mj-wrapper>
+
+        {% include './partials/_footer.mjml' %}
+    </mj-body>
+</mjml>
+{% endmjml %}
