@@ -121,11 +121,20 @@ DATABASES = {
         'HOST': env.str('DB_HOST_ORACLE'),
         'PORT': env.str('DB_PORT_ORACLE'),
     },
+    'recibos_nom': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': env.str('DB_NAME_ORACLE'),
+        'USER': env.str('DB_USER_ORACLE_NOM'),
+        'PASSWORD': env.str('DB_PASS_ORACLE_NOM'),
+        'HOST': env.str('DB_HOST_ORACLE'),
+        'PORT': env.str('DB_PORT_ORACLE'),
+    },
 }
 
 DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',
-                    'egresados.dbrouters.routerEgresados',]
-#                     'calidad.dbrouters.routerCalidad',]
+                    'egresados.dbrouters.routerEgresados',
+                    # 'calidad.dbrouters.routerCalidad',]
+                    'recibos.dbrouters.routerRecibosNomina',]
 
 
 # Password validation
