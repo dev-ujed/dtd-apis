@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'serviciosoc',
     'egresados',
     'proveedores',
+    'gmailapp',
 ]
 
 MIDDLEWARE = [
