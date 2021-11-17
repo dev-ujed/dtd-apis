@@ -20,4 +20,6 @@ urlpatterns = [
     path('api/servsoc/',    include('serviciosoc.urls')),
     path('egresados/',      include('egresados.urls')),
     path('proveedores/',    include('proveedores.urls')),
+    path('gmail/',    include('gmailapp.urls')),
+
 ]

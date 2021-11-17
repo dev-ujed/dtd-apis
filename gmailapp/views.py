@@ -5,13 +5,13 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import json
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = [
-        'https://www.googleapis.com/auth/admin.directory.user',
-    ]
+    'https://www.googleapis.com/auth/admin.directory.user',
+]
 # Create your views here.
 def listado(request):
     """Shows basic usage of the Admin SDK Directory API.
@@ -30,7 +30,7 @@ def listado(request):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                './cadmin/credenciales.json', SCOPES)
+                './credentials/credenciales.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
@@ -79,7 +79,7 @@ def eliminar(request, usuario):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                './cadmin/credenciales.json', SCOPES)
+                './credentials/credenciales.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
@@ -100,7 +100,11 @@ def eliminar(request, usuario):
 
 
 ##Vista para Agregar usuarios
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 def agregar(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
     """Shows basic usage of the Admin SDK Directory API.
     Prints the emails and names of the first 10 users in the domain.
     """
@@ -117,7 +121,7 @@ def agregar(request):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                './cadmin/credenciales.json', SCOPES)
+                './credentials/credenciales.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
@@ -125,9 +129,14 @@ def agregar(request):
 
     service = build('admin', 'directory_v1', credentials=creds)
     usuario = {
-                "name": {"familyName": "Burtons", "givenName": "Haniels"},
-                "password": "some_pass",
-                "primaryEmail": "haniels@alumnos.ujed.mx",
+                "name": {"familyName": data['last_name'], "givenName": data['name']},
+                "externalIds": [{
+                    "value": data['matricula'],
+                    "type": "custom",
+                    "customType": "matricula"
+                }],
+                "password": data['password'],
+                "primaryEmail": data['email'],
                 "orgUnitPath": "/alumnos",
             }
 
