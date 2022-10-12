@@ -1236,3 +1236,4 @@ class UpdateSubservice(APIView):
             return Response(subServiceUpate, status=201)
         else:
             return Response(serializerSubservice.errors, status=422)
+

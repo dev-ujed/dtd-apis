@@ -343,3 +343,13 @@ class Bitacora(models.Model):
     class Meta:
         verbose_name_plural = 'Bitacora'
         app_label           = 'solicitudes'
+
+class BitacoraServicios(models.Model):
+    unidad = models.CharField(max_length=40)
+    folio_sistema = models.CharField(max_length=40)
+    solicitado_por = models.CharField(max_length=40)
+    folio_interno = models.CharField(max_length=40)
+    fecha = models.DateField(auto_now_add=True)
+    solicitud = models.CharField(max_length=200)
+    diagnostico = models.CharField(max_length=200)
+    material = models.CharField(max_length=200)

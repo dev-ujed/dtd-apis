@@ -1,3 +1,5 @@
+from dataclasses import field
+from pyexpat import model
 from rest_framework import serializers
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -533,3 +535,4 @@ class BitacoraSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bitacora
         fields = '__all__'
+

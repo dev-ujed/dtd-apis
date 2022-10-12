@@ -14,7 +14,6 @@ router.register('sol/submenus',Dashboard_submenusViewSet)
 router.register('sol/links',Dashboard_linksViewSet)
 router.register('sol/cat_estatus',EstatusViewSet)
 router.register('sol/tipo_estatus',Tipo_EstatusViewSet)
-
 SolicitudEdit = SolicitudViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
