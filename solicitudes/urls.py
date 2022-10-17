@@ -28,12 +28,12 @@ SolicitudEdit = SolicitudViewSet.as_view({
     #'delete': 'destroy'
 #})
 urlpatterns = [
-    path('sol/solicitudes/',SolicitudAPIView.as_view(),name='sol_save'),
-    path('sol/solicitudes/<int:pk>',SolicitudEdit,name='sol_edit'),
-    path('sol/solicitudes/all/',TodasSolicitudes.as_view(),name='sol_all'),
-    path('sol/solicitudes/<int:pk>/upload/',MyFileView.as_view(), name='file-upload'),
-    path('sol/solicitudes/<int:pk>/update/',MyFileViewUpdate.as_view(), name='file-update'),
-    path('sol/solicitudes/<int:pk>/delete/',MyFileViewDelete.as_view(), name='file-delete'),
+    path('sol/solicitudes/',                    SolicitudAPIView.as_view(), name='sol_save'),
+    path('sol/solicitudes/<int:pk>',            SolicitudEdit,              name='sol_edit'),
+    path('sol/solicitudes/all/',                TodasSolicitudes.as_view(), name='sol_all'),
+    path('sol/solicitudes/<int:pk>/upload/',    MyFileView.as_view(),       name='file-upload'),
+    path('sol/solicitudes/<int:pk>/update/',    MyFileViewUpdate.as_view(), name='file-update'),
+    path('sol/solicitudes/<int:pk>/delete/',    MyFileViewDelete.as_view(), name='file-delete'),
     path('sol/solicitudes/<str:solicitud_id>/detalle/',MyFileViewDetails.as_view(), name='file-detail'),
 	path('sol/detallesol/<str:folio>',DetalleSolicitud.as_view(),name='detalle_sol'),
     path('sol/detallecoreo/<str:folio>',DetalleCorreo.as_view(),name='detalle_correo'),

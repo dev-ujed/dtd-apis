@@ -270,6 +270,7 @@ class MyFileViewDelete(APIView):
     authentication_classes  = ()
     permission_classes      = ()
     parser_classes          = (MultiPartParser,FormParser)
+    
     def get(self, request, *args, **kwargs):
         archivo     = get_object_or_404(MyFile, pk=self.kwargs["pk"])
         serializer  = MyFileSerializer(archivo)
