@@ -1,15 +1,16 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-
 from inventario.views import *
 
 router=DefaultRouter()
 
-# router.register('sol/bitacoraServicio', BitacoraServiciosViewSet)
+router.register('sol/productos',     ProductosViewSet)
+router.register('sol/all-productos',  AllProductsViewSet)
+router.register('sol/inventario_ent', EntradasViewSet)
+router.register('sol/inventario_sal', SalidasViewSet)
 
 urlpatterns = [
 
-    #path('solicitudes_docs/',include_docs_urls(title='Documentación de Apis')),
 ]
 
 urlpatterns+=router.urls

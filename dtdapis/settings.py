@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
     'mjml',
     # Project apps
     'solicitudes',
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'proveedores',
     'bitacora',
     'inventario',
+    
 ]
 
 MIDDLEWARE = [
@@ -118,14 +120,14 @@ DATABASES = {
         'HOST': env.str('DB_SOL_HOST'),
         'PORT': env.str('DB_SOL_PORT'),
     },
-    # 'escolares': {
-    #     'ENGINE': 'django.db.backends.oracle',
-    #     'NAME': env.str('DB_NAME_ORACLE'),
-    #     'USER': env.str('DB_USER_ORACLE'),
-    #     'PASSWORD': env.str('DB_PASS_ORACLE'),
-    #     'HOST': env.str('DB_HOST_ORACLE'),
-    #     'PORT': env.str('DB_PORT_ORACLE'),
-    # },
+    'escolares': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': env.str('DB_NAME_ORACLE'),
+        'USER': env.str('DB_USER_ORACLE'),
+        'PASSWORD': env.str('DB_PASS_ORACLE'),
+        'HOST': env.str('DB_HOST_ORACLE'),
+        'PORT': env.str('DB_PORT_ORACLE'),
+    },
 }
 
 DATABASE_ROUTERS = ['solicitudes.dbrouters.postgresqlRouter',
@@ -193,6 +195,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 # EMAIL
