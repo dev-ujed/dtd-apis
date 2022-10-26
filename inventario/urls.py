@@ -4,10 +4,9 @@ from inventario.views import *
 
 router=DefaultRouter()
 
-router.register('sol/productos',     ProductosViewSet)
-router.register('sol/all-productos',  AllProductsViewSet)
-router.register('sol/inventario_ent', EntradasViewSet)
-router.register('sol/inventario_sal', SalidasViewSet)
+router.register('sol/productos',        ProductosViewSet)
+router.register('sol/inventario_ent',   EntradasViewSet)
+router.register('sol/inventario_sal',   SalidasViewSet)
 
 urlpatterns = [
 
