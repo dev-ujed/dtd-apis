@@ -1101,9 +1101,21 @@ class getFile(APIView):
 
     def get(self, request, *args, **kwargs):
         archivo     = kwargs.get('file')
+
         file        = open('media/'+archivo, 'rb')
         response    = FileResponse(file)
         return response
+
+class deleteFile(APIView):
+    authentication_classes  = ()
+    permission_classes      = ()   
+
+    def post(self, request, *args, **kwargs):
+        archivo     = kwargs.get('file')
+        file        = ('media/'+archivo)
+        os.remove(file)
+        
+    
 
 class ProcesoSolicitud(APIView):
     authentication_classes  = ()

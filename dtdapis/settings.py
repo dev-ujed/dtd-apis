@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     'egresados',
     'proveedores',
     'bitacora',
-    'inventario',
-    
+    'inventario', 
+    'bitacoramantenimiento',  
 ]
 
 MIDDLEWARE = [
