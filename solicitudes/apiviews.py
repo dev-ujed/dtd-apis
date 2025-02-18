@@ -359,6 +359,7 @@ class SolicitudAPIView(APIView):
         pautoriza           = request.data.get("pautoriza")
         descripcion         = request.data.get("descripcion")
         estatus_id          = request.data.get("estatus_id")
+        area                = request.data.get("area")
         folio               = get_random_string(length=6).upper()
         ures_exists         = (Ures.objects.filter(id=ures))
 
@@ -395,6 +396,7 @@ class SolicitudAPIView(APIView):
                 'descripcion':      descripcion,
                 'estatus_id':       estatus_id,
                 'folio':            folio,
+                'area':             area
                 #'fecha_sol':       current_time
             }
 

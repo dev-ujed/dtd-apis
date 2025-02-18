@@ -10,6 +10,7 @@ HEAD
 /objects
 /refs
 /venv
+/env
 /media
 dtdapis/__pycache__/settings.cpython-37.pyc
 dtdapis/__pycache__/urls.cpython-37.pyc
