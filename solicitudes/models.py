@@ -84,6 +84,7 @@ class Solicitud(models.Model):
     folio               = models.CharField(max_length=6, null=True, help_text='Folio generado automaticamente de la solicitud')
     fecha_sol           = models.DateTimeField(auto_now_add=True)
     estatus_update      = models.DateTimeField(null=True)
+    area                = models.CharField(max_length=20, null=True)
 
     def save(self, *args, **kwargs):
         if(self.estatus == None):
