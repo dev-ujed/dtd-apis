@@ -1116,8 +1116,19 @@ class deleteFile(APIView):
         archivo     = kwargs.get('file')
         file        = ('media/'+archivo)
         os.remove(file)
-        
-    
+
+class deleteSol(APIView):
+    authentication_classes  = ()
+    permission_classes      = ()   
+
+    def delete(self, request, *args, **kwargs):
+        try:
+            solicitud = Solicitud.objects.get(folio = request.data.get("folio"))
+            solicitud.delete()
+            return Response(status=200)
+        except:
+            return Response(status=500)
+
 
 class ProcesoSolicitud(APIView):
     authentication_classes  = ()

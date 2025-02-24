@@ -30,6 +30,7 @@ SolicitudEdit = SolicitudViewSet.as_view({
 urlpatterns = [
     path('sol/solicitudes/',                    SolicitudAPIView.as_view(), name='sol_save'),
     path('sol/solicitudes/<int:pk>',            SolicitudEdit,              name='sol_edit'),
+    path('sol/solicitudes/<str:folio>/del/',    deleteSol.as_view(),        name='sol_delete'),
     path('sol/solicitudes/all/',                TodasSolicitudes.as_view(), name='sol_all'),
     path('sol/solicitudes/<int:pk>/upload/',    MyFileView.as_view(),       name='file-upload'),
     path('sol/solicitudes/<int:pk>/update/',    MyFileViewUpdate.as_view(), name='file-update'),
