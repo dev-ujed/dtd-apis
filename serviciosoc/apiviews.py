@@ -190,7 +190,7 @@ class countAlumnos(generics.ListAPIView):
 
 
 class getEstadistica(generics.ListAPIView):
-	permission_classes=[AllowAny]c
+	permission_classes=[AllowAny]
 	"""
 	API que obtiene listado de alumnos activos e inactivos de una escuela o facultad. 
  	Se recibe como parámetro la clave del ciclo a consultar o el número de semestre en el ciclo actual.
