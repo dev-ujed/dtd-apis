@@ -1,6 +1,8 @@
 from django.db.models import Subquery
 # from django.core.serializers import serialize
 from rest_framework import generics
+from rest_framework.permissions import AllowAny
+
 
 from .models import DatosAlumno, DatosAlumnos, ContarAlumnos, DBMovAlumnos, DBCiclo
 from .serializers import AlumnoSerializer, AlumnosSerializer, ContarSerializer, DBCicloSerializer, EstadisticaSerializer
@@ -9,6 +11,7 @@ from datetime import date
 
 
 class getDatosAlumno(generics.ListAPIView):
+	permission_classes=[AllowAny]
 	"""
 	API que obtiene los datos de los alumno, de una escuela y matrícula específica.
 	"""
@@ -84,6 +87,7 @@ class getDatosAlumno(generics.ListAPIView):
 
 
 class getCiclosEgreso(generics.ListAPIView):
+	permission_classes=[AllowAny]
 	"""
 	API que obtiene un listado de ciclos de egreso de una escuela o facultad específica.
 	"""
@@ -106,6 +110,7 @@ class getCiclosEgreso(generics.ListAPIView):
 
 
 class searchAlumnos(generics.ListAPIView):
+	permission_classes=[AllowAny]
 	"""
 	API que obtiene un listado de alumnos insccritos en una escuela específica. 
 	Puede recibir como parámetros opcionales la matrícula, nombre, apellidos o semestre.
@@ -150,6 +155,7 @@ class searchAlumnos(generics.ListAPIView):
 
 
 class countAlumnos(generics.ListAPIView):
+	permission_classes=[AllowAny]
 	"""
 	API que obtiene un conteo de alumnos activos e inactivos de una escuela o facultad en el ciclo actual.
 	"""
@@ -184,6 +190,7 @@ class countAlumnos(generics.ListAPIView):
 
 
 class getEstadistica(generics.ListAPIView):
+	permission_classes=[AllowAny]c
 	"""
 	API que obtiene listado de alumnos activos e inactivos de una escuela o facultad. 
  	Se recibe como parámetro la clave del ciclo a consultar o el número de semestre en el ciclo actual.
@@ -229,6 +236,7 @@ class getEstadistica(generics.ListAPIView):
 
 
 class getAlumno(generics.ListAPIView):
+	permission_classes=[AllowAny]
 	def get_queryset(self):
 		if request.method == 'POST':
 			buscado=request.POST
